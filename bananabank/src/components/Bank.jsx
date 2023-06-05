@@ -8,12 +8,6 @@ import Header from "./Header";
 const Bank = () => {
     const [amount,setAmount] = useState(0)
     function getInput(){return document.getElementById("input")}
-    const deposit = () => {
-        setAmount(amount + Number(getInput().value))
-    }
-    const withdraw = () => {
-        setAmount(amount - Number(getInput().value))
-    }
 
     return (  
         <>
@@ -24,8 +18,8 @@ const Bank = () => {
                 </div>
             <Input/>
             <div>
-                <Deposit event={deposit}/>
-                <Withdraw event={withdraw}/>
+                <Deposit amount={amount} setAmount={setAmount} input={getInput}/>
+                <Withdraw amount={amount} setAmount={setAmount} input={getInput}/>
             </div>
             </section>
         </>
